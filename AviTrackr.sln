@@ -1,0 +1,43 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.27130.2036
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SecuringAngularApps.STS", "SecuringAngularApps.STS\SecuringAngularApps.STS.csproj", "{126FF2EB-81E2-4359-9AC2-A6EE5939EECA}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AviTrackr.Api", "AviTrackr.Api\AviTrackr.Api.csproj", "{7BC57032-930E-46E5-8311-DBF0BAC6C737}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AviTrackr.Domain", "AviTrackr.Domain\AviTrackr.Domain.csproj", "{302F1F27-B601-4732-86D8-BAB48BC08ED2}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AviTrackr.Test", "AviTrackr.Test\AviTrackr.Test.csproj", "{1C37F032-8298-4C13-B882-8346CAC3B272}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{126FF2EB-81E2-4359-9AC2-A6EE5939EECA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{126FF2EB-81E2-4359-9AC2-A6EE5939EECA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{126FF2EB-81E2-4359-9AC2-A6EE5939EECA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{126FF2EB-81E2-4359-9AC2-A6EE5939EECA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7BC57032-930E-46E5-8311-DBF0BAC6C737}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7BC57032-930E-46E5-8311-DBF0BAC6C737}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7BC57032-930E-46E5-8311-DBF0BAC6C737}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7BC57032-930E-46E5-8311-DBF0BAC6C737}.Release|Any CPU.Build.0 = Release|Any CPU
+		{302F1F27-B601-4732-86D8-BAB48BC08ED2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{302F1F27-B601-4732-86D8-BAB48BC08ED2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{302F1F27-B601-4732-86D8-BAB48BC08ED2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{302F1F27-B601-4732-86D8-BAB48BC08ED2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1C37F032-8298-4C13-B882-8346CAC3B272}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1C37F032-8298-4C13-B882-8346CAC3B272}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1C37F032-8298-4C13-B882-8346CAC3B272}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1C37F032-8298-4C13-B882-8346CAC3B272}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {4326F173-8587-40FB-9C6C-AE58C2FF9E3D}
+	EndGlobalSection
+EndGlobal
