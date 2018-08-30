@@ -1,5 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Threading;
 using System.Threading.Tasks;
 using AutoMapper.QueryableExtensions;
@@ -32,7 +31,11 @@ namespace AviTrackr.Domain.Features.MyTasks.Queries
 
             public async Task<List<Model>> Handle(Query request, CancellationToken cancellationToken)
             {
-                List<Model> result = await _context.NotificationTypes.ProjectTo<Model>().ToListAsync();
+                var result = await _context
+                    .NotificationTypes
+                    .ProjectTo<Model>()
+                    .ToListAsync(cancellationToken);
+
                 return result;
             }
         }

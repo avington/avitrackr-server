@@ -37,5 +37,7 @@ namespace AviTrackr.Domain.Data.Contexts
             UserProfileModelBuilder.Build(builder);
             TasksModelBuilder.Build(builder);
         }
+
+        
     }
 }

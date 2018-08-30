@@ -19,12 +19,12 @@ namespace AviTrackr.Domain.Features.MyTasks.Queries
             public string StatusDescription { get; set; }
         }
 
-        public class Query : IRequest<IList<Model>>
+        public class Query : IRequest<List<Model>>
         {
             
         }
 
-        public class Handler : IRequestHandler<Query, IList<Model>>
+        public class Handler : IRequestHandler<Query, List<Model>>
         {
 
             private readonly AviTrackrDbContext _context;
@@ -34,7 +34,7 @@ namespace AviTrackr.Domain.Features.MyTasks.Queries
                 _context = context;
             }
 
-            public async Task<IList<Model>> Handle(Query request, CancellationToken cancellationToken)
+            public async Task<List<Model>> Handle(Query request, CancellationToken cancellationToken)
             {
                 var result = await _context
                     .MyTaskStatuses

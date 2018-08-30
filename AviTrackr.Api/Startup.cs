@@ -12,6 +12,8 @@ using Microsoft.AspNetCore.Hosting;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Extensions.Logging;
+using Microsoft.Extensions.Logging.Console;
 
 namespace AviTrackr.Api
 {
@@ -24,6 +26,9 @@ namespace AviTrackr.Api
 
         public IConfiguration Configuration { get; }
 
+        public static readonly LoggerFactory MyLoggerFactory
+            = new LoggerFactory(new[] { new ConsoleLoggerProvider((_, __) => true, true) });
+
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
@@ -33,7 +38,11 @@ namespace AviTrackr.Api
 
             // configure database
             services.AddDbContext<AviTrackrDbContext>(options =>
-                options.UseSqlServer(Configuration.GetConnectionString("AviTrackrDbContext")));
+            {
+                options.UseLoggerFactory(MyLoggerFactory);
+                options.UseSqlServer(Configuration.GetConnectionString("AviTrackrDbContext"));
+            });
+                
 
             // configure cors
             services.AddCors(options =>
@@ -73,6 +82,7 @@ namespace AviTrackr.Api
             Mapper.Initialize(i => i.AddProfiles(typeof(BaseEntity).GetTypeInfo().Assembly));
 
             NotificationTypeSeed.Seed(context).Wait();
+            MyTaskStatusesSeed.Seed(context).Wait();
 
             app.UseAuthentication();
             app.UseMvc();

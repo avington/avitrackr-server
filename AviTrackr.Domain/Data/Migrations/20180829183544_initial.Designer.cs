@@ -10,7 +10,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace AviTrackr.Domain.Data.Migrations
 {
     [DbContext(typeof(AviTrackrDbContext))]
-    [Migration("20180829171843_initial")]
+    [Migration("20180829183544_initial")]
     partial class initial
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)

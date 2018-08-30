@@ -107,6 +107,9 @@ AutoTest.Net/
 # Web Storm IDE files
 .idea/
 
+# VS
+.vs/
+
 # Installshield output folder
 [Ee]xpress/
 
@@ -199,11 +202,3 @@ lucene_search/
 
 !MbOpp.App/Scripts/vendor/angular-ui-router/release
 
-#Gulp TSC generated temp files
-MbOpp.App/gulp-tsc-tmp*
-
-MbOpp.Web
-
-MbOpp.App/src/app
-.vs/
-.vs/MbOpp/v15/sqlite3/storage.ide
