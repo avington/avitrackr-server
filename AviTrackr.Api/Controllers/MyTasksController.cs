@@ -2,8 +2,8 @@
 using System.Collections.Generic;
 using System.Security.Claims;
 using System.Threading.Tasks;
+using AviTrackr.Domain.Base.Models;
 using AviTrackr.Domain.Features.MyTasks.Queries;
-using AviTrackr.Domain.Features.Users.Queries;
 using MediatR;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
@@ -24,16 +24,17 @@ namespace AviTrackr.Api.Controllers
             _logger = logger;
         }
 
-        
+
         [HttpGet]
         [Authorize]
-        public async Task<ActionResult<List<MyTasksRequest.Model>>> Get([FromQuery] MyTasksRequest.Query query)
+        public async Task<ActionResult<SummaryResponseModel<List<MyTasksRequest.Model>>>> Get(
+            [FromQuery] MyTasksRequest.Query query)
         {
             var userId = User.FindFirstValue("http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress");
             query.UserId = userId;
             try
             {
-                var result = await _mediator.Send(new MyTasksRequest.Query());
+                var result = await _mediator.Send(query);
                 return result;
             }
             catch (Exception ex)
@@ -42,6 +43,5 @@ namespace AviTrackr.Api.Controllers
                 return StatusCode(500, ex);
             }
         }
-        
     }
 }

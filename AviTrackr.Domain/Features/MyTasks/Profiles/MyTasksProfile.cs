@@ -36,18 +36,17 @@ namespace AviTrackr.Domain.Features.MyTasks.Profiles
                 ;
 
             CreateMap<MyTask, MyTasksRequest.Model>()
-                .ForMember(m => m.StatusModel, opt => opt.MapFrom(f => f.Status))
+                .ForMember(m => m.Status, opt => opt.MapFrom(f => f.Status))
                 .ForMember(m => m.UserName, opt => opt.MapFrom(f => f.UserProfile.Email))   
-                .ForMember(m => m.Skip, opt => opt.Ignore())
-                .ForMember(m => m.Take, opt => opt.Ignore())
+                .ForMember(m => m.PagingInfo, opt => opt.Ignore())
                 ;
 
             
 
             CreateMap<MyTasksRequest.Model, MyTask>()
                 .ForMember(m => m.UserProfile, opt => opt.MapFrom(mf => new UserProfile {Email = mf.UserName}))
-                .ForMember(m => m.Status, opt => opt.MapFrom(f => f.StatusModel))
-                .ForMember(m => m.StatusId, opt => opt.MapFrom(f => f.StatusModel.Id))
+                .ForMember(m => m.Status, opt => opt.MapFrom(f => f.Status))
+                .ForMember(m => m.StatusId, opt => opt.MapFrom(f => f.Status.Id))
                 .ForMember(m => m.Id, opt => opt.Ignore())
                 .ForMember(m => m.RowVersion, opt => opt.Ignore())
                 .ForMember(m => m.UserProfileId, opt => opt.Ignore())

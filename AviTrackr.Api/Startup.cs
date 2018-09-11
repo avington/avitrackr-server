@@ -35,6 +35,7 @@ namespace AviTrackr.Api
             services.AddMediatR(typeof(BaseEntity).GetTypeInfo().Assembly);
             services.AddAutoMapper(typeof(BaseEntity).GetTypeInfo().Assembly);
             services.AddTransient<IMapperWrapper, MapperWrapper>();
+            services.AddTransient<IPagingResponseService, PagingResponseService>();
 
             // configure database
             services.AddDbContext<AviTrackrDbContext>(options =>
