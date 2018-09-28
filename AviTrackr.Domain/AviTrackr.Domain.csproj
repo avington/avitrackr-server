@@ -18,9 +18,5 @@
     <DotNetCliToolReference Include="Microsoft.EntityFrameworkCore.Tools.DotNet" Version="2.1.2" />
   </ItemGroup>
 
-  <ItemGroup>
-    <Folder Include="Features\MyTasks\Commands\" />
-  </ItemGroup>
-
  
 </Project>

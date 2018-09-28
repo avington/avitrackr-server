@@ -14,6 +14,7 @@ namespace AviTrackr.Domain.Features.MyTasks.Entities
         public bool ShowBusy { get; set; }
         public bool IsVisible { get; set; }
         public ICollection<NotificationLocation> NotificationLocations { get; set; }
+        public DateTime? StartsAt { get; set; }
         public DateTime? ExpiresAt { get; set; }
 
         public virtual ICollection<Notification> Notifications { get; set; }
