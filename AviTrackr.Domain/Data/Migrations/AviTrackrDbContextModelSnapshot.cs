@@ -26,7 +26,7 @@ namespace AviTrackr.Domain.Data.Migrations
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
                     b.Property<DateTime>("CreatedAt")
-                        .ValueGeneratedOnAddOrUpdate()
+                        .ValueGeneratedOnAdd()
                         .HasColumnType("datetime")
                         .HasDefaultValueSql("getdate()");
 
@@ -38,13 +38,18 @@ namespace AviTrackr.Domain.Data.Migrations
 
                     b.Property<bool>("IsVisible");
 
-                    b.Property<DateTime?>("ModifiedAt");
+                    b.Property<DateTime?>("ModifiedAt")
+                        .ValueGeneratedOnAddOrUpdate()
+                        .HasColumnType("datetime")
+                        .HasDefaultValueSql("getdate()");
 
                     b.Property<byte[]>("RowVersion")
                         .IsConcurrencyToken()
                         .ValueGeneratedOnAddOrUpdate();
 
                     b.Property<bool>("ShowBusy");
+
+                    b.Property<DateTime?>("StartsAt");
 
                     b.Property<long>("StatusId");
 
@@ -70,7 +75,7 @@ namespace AviTrackr.Domain.Data.Migrations
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
                     b.Property<DateTime>("CreatedAt")
-                        .ValueGeneratedOnAddOrUpdate()
+                        .ValueGeneratedOnAdd()
                         .HasColumnType("datetime")
                         .HasDefaultValueSql("getdate()");
 
@@ -78,7 +83,10 @@ namespace AviTrackr.Domain.Data.Migrations
                         .ValueGeneratedOnAdd()
                         .HasDefaultValueSql("NEWID()");
 
-                    b.Property<DateTime?>("ModifiedAt");
+                    b.Property<DateTime?>("ModifiedAt")
+                        .ValueGeneratedOnAddOrUpdate()
+                        .HasColumnType("datetime")
+                        .HasDefaultValueSql("getdate()");
 
                     b.Property<byte[]>("RowVersion")
                         .IsConcurrencyToken()
@@ -100,7 +108,7 @@ namespace AviTrackr.Domain.Data.Migrations
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
                     b.Property<DateTime>("CreatedAt")
-                        .ValueGeneratedOnAddOrUpdate()
+                        .ValueGeneratedOnAdd()
                         .HasColumnType("datetime")
                         .HasDefaultValueSql("getdate()");
 
@@ -108,11 +116,14 @@ namespace AviTrackr.Domain.Data.Migrations
                         .ValueGeneratedOnAdd()
                         .HasDefaultValueSql("NEWID()");
 
-                    b.Property<DateTime?>("ModifiedAt");
+                    b.Property<DateTime?>("ModifiedAt")
+                        .ValueGeneratedOnAddOrUpdate()
+                        .HasColumnType("datetime")
+                        .HasDefaultValueSql("getdate()");
 
                     b.Property<long?>("MyTaskId");
 
-                    b.Property<long>("NofificationTimingId");
+                    b.Property<long>("NotificationTimingId");
 
                     b.Property<long>("NotificationTypeId");
 
@@ -124,7 +135,7 @@ namespace AviTrackr.Domain.Data.Migrations
 
                     b.HasIndex("MyTaskId");
 
-                    b.HasIndex("NofificationTimingId");
+                    b.HasIndex("NotificationTimingId");
 
                     b.HasIndex("NotificationTypeId");
 
@@ -138,7 +149,7 @@ namespace AviTrackr.Domain.Data.Migrations
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
                     b.Property<DateTime>("CreatedAt")
-                        .ValueGeneratedOnAddOrUpdate()
+                        .ValueGeneratedOnAdd()
                         .HasColumnType("datetime")
                         .HasDefaultValueSql("getdate()");
 
@@ -156,7 +167,10 @@ namespace AviTrackr.Domain.Data.Migrations
 
                     b.Property<string>("Location");
 
-                    b.Property<DateTime?>("ModifiedAt");
+                    b.Property<DateTime?>("ModifiedAt")
+                        .ValueGeneratedOnAddOrUpdate()
+                        .HasColumnType("datetime")
+                        .HasDefaultValueSql("getdate()");
 
                     b.Property<long?>("MyTaskId");
 
@@ -178,7 +192,7 @@ namespace AviTrackr.Domain.Data.Migrations
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
                     b.Property<DateTime>("CreatedAt")
-                        .ValueGeneratedOnAddOrUpdate()
+                        .ValueGeneratedOnAdd()
                         .HasColumnType("datetime")
                         .HasDefaultValueSql("getdate()");
 
@@ -186,7 +200,10 @@ namespace AviTrackr.Domain.Data.Migrations
                         .ValueGeneratedOnAdd()
                         .HasDefaultValueSql("NEWID()");
 
-                    b.Property<DateTime?>("ModifiedAt");
+                    b.Property<DateTime?>("ModifiedAt")
+                        .ValueGeneratedOnAddOrUpdate()
+                        .HasColumnType("datetime")
+                        .HasDefaultValueSql("getdate()");
 
                     b.Property<byte[]>("RowVersion")
                         .IsConcurrencyToken()
@@ -208,7 +225,7 @@ namespace AviTrackr.Domain.Data.Migrations
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
                     b.Property<DateTime>("CreatedAt")
-                        .ValueGeneratedOnAddOrUpdate()
+                        .ValueGeneratedOnAdd()
                         .HasColumnType("datetime")
                         .HasDefaultValueSql("getdate()");
 
@@ -216,7 +233,10 @@ namespace AviTrackr.Domain.Data.Migrations
                         .ValueGeneratedOnAdd()
                         .HasDefaultValueSql("NEWID()");
 
-                    b.Property<DateTime?>("ModifiedAt");
+                    b.Property<DateTime?>("ModifiedAt")
+                        .ValueGeneratedOnAddOrUpdate()
+                        .HasColumnType("datetime")
+                        .HasDefaultValueSql("getdate()");
 
                     b.Property<string>("NotificationTypeName");
 
@@ -236,7 +256,7 @@ namespace AviTrackr.Domain.Data.Migrations
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
                     b.Property<DateTime>("CreatedAt")
-                        .ValueGeneratedOnAddOrUpdate()
+                        .ValueGeneratedOnAdd()
                         .HasColumnType("datetime")
                         .HasDefaultValueSql("getdate()");
 
@@ -244,7 +264,10 @@ namespace AviTrackr.Domain.Data.Migrations
                         .ValueGeneratedOnAdd()
                         .HasDefaultValueSql("NEWID()");
 
-                    b.Property<DateTime?>("ModifiedAt");
+                    b.Property<DateTime?>("ModifiedAt")
+                        .ValueGeneratedOnAddOrUpdate()
+                        .HasColumnType("datetime")
+                        .HasDefaultValueSql("getdate()");
 
                     b.Property<int?>("ProjectId");
 
@@ -270,7 +293,7 @@ namespace AviTrackr.Domain.Data.Migrations
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
                     b.Property<DateTime>("CreatedAt")
-                        .ValueGeneratedOnAddOrUpdate()
+                        .ValueGeneratedOnAdd()
                         .HasColumnType("datetime")
                         .HasDefaultValueSql("getdate()");
 
@@ -286,7 +309,10 @@ namespace AviTrackr.Domain.Data.Migrations
 
                     b.Property<string>("LastName");
 
-                    b.Property<DateTime?>("ModifiedAt");
+                    b.Property<DateTime?>("ModifiedAt")
+                        .ValueGeneratedOnAddOrUpdate()
+                        .HasColumnType("datetime")
+                        .HasDefaultValueSql("getdate()");
 
                     b.Property<byte[]>("RowVersion")
                         .IsConcurrencyToken()
@@ -317,9 +343,9 @@ namespace AviTrackr.Domain.Data.Migrations
                         .HasForeignKey("MyTaskId")
                         .OnDelete(DeleteBehavior.Cascade);
 
-                    b.HasOne("AviTrackr.Domain.Features.MyTasks.Entities.NotificationTiming", "NofificationTiming")
+                    b.HasOne("AviTrackr.Domain.Features.MyTasks.Entities.NotificationTiming", "NotificationTiming")
                         .WithMany("Notifications")
-                        .HasForeignKey("NofificationTimingId")
+                        .HasForeignKey("NotificationTimingId")
                         .OnDelete(DeleteBehavior.Cascade);
 
                     b.HasOne("AviTrackr.Domain.Features.MyTasks.Entities.NotificationType", "NotificationType")

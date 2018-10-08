@@ -26,7 +26,7 @@ namespace AviTrackr.Domain.Data.Builders
                 .IsRequired();
 
             builder.Entity<T>()
-                .Property(c => c.CreatedAt)
+                .Property(c => c.ModifiedAt)
                 .HasColumnType("datetime")
                 .HasDefaultValueSql("getdate()")
                 .ValueGeneratedOnAddOrUpdate();

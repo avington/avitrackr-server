@@ -16,6 +16,9 @@ bld/
 [Bb]in/
 [Oo]bj/
 
+# private settings
+[Pp]rivate/
+
 # Roslyn cache directories
 *.ide/
 

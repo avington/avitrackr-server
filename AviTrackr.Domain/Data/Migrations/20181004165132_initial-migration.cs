@@ -4,7 +4,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace AviTrackr.Domain.Data.Migrations
 {
-    public partial class initial : Migration
+    public partial class initialmigration : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -16,7 +16,7 @@ namespace AviTrackr.Domain.Data.Migrations
                         .Annotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn),
                     Identifier = table.Column<Guid>(nullable: false, defaultValueSql: "NEWID()"),
                     CreatedAt = table.Column<DateTime>(type: "datetime", nullable: false, defaultValueSql: "getdate()"),
-                    ModifiedAt = table.Column<DateTime>(nullable: true),
+                    ModifiedAt = table.Column<DateTime>(type: "datetime", nullable: true, defaultValueSql: "getdate()"),
                     RowVersion = table.Column<byte[]>(rowVersion: true, nullable: true),
                     StatusName = table.Column<string>(nullable: true),
                     StatusDescription = table.Column<string>(nullable: true)
@@ -34,7 +34,7 @@ namespace AviTrackr.Domain.Data.Migrations
                         .Annotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn),
                     Identifier = table.Column<Guid>(nullable: false, defaultValueSql: "NEWID()"),
                     CreatedAt = table.Column<DateTime>(type: "datetime", nullable: false, defaultValueSql: "getdate()"),
-                    ModifiedAt = table.Column<DateTime>(nullable: true),
+                    ModifiedAt = table.Column<DateTime>(type: "datetime", nullable: true, defaultValueSql: "getdate()"),
                     RowVersion = table.Column<byte[]>(rowVersion: true, nullable: true),
                     TimingAmount = table.Column<int>(nullable: false),
                     TimingAmountType = table.Column<string>(nullable: true)
@@ -52,7 +52,7 @@ namespace AviTrackr.Domain.Data.Migrations
                         .Annotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn),
                     Identifier = table.Column<Guid>(nullable: false, defaultValueSql: "NEWID()"),
                     CreatedAt = table.Column<DateTime>(type: "datetime", nullable: false, defaultValueSql: "getdate()"),
-                    ModifiedAt = table.Column<DateTime>(nullable: true),
+                    ModifiedAt = table.Column<DateTime>(type: "datetime", nullable: true, defaultValueSql: "getdate()"),
                     RowVersion = table.Column<byte[]>(rowVersion: true, nullable: true),
                     NotificationTypeName = table.Column<string>(nullable: true)
                 },
@@ -69,7 +69,7 @@ namespace AviTrackr.Domain.Data.Migrations
                         .Annotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn),
                     Identifier = table.Column<Guid>(nullable: false, defaultValueSql: "NEWID()"),
                     CreatedAt = table.Column<DateTime>(type: "datetime", nullable: false, defaultValueSql: "getdate()"),
-                    ModifiedAt = table.Column<DateTime>(nullable: true),
+                    ModifiedAt = table.Column<DateTime>(type: "datetime", nullable: true, defaultValueSql: "getdate()"),
                     RowVersion = table.Column<byte[]>(rowVersion: true, nullable: true),
                     Email = table.Column<string>(nullable: true),
                     FirstName = table.Column<string>(nullable: true),
@@ -89,12 +89,13 @@ namespace AviTrackr.Domain.Data.Migrations
                         .Annotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn),
                     Identifier = table.Column<Guid>(nullable: false, defaultValueSql: "NEWID()"),
                     CreatedAt = table.Column<DateTime>(type: "datetime", nullable: false, defaultValueSql: "getdate()"),
-                    ModifiedAt = table.Column<DateTime>(nullable: true),
+                    ModifiedAt = table.Column<DateTime>(type: "datetime", nullable: true, defaultValueSql: "getdate()"),
                     RowVersion = table.Column<byte[]>(rowVersion: true, nullable: true),
                     TaskName = table.Column<string>(nullable: true),
                     TaskDescription = table.Column<string>(nullable: true),
                     ShowBusy = table.Column<bool>(nullable: false),
                     IsVisible = table.Column<bool>(nullable: false),
+                    StartsAt = table.Column<DateTime>(nullable: true),
                     ExpiresAt = table.Column<DateTime>(nullable: true),
                     UserProfileId = table.Column<long>(nullable: false),
                     StatusId = table.Column<long>(nullable: false)
@@ -124,7 +125,7 @@ namespace AviTrackr.Domain.Data.Migrations
                         .Annotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn),
                     Identifier = table.Column<Guid>(nullable: false, defaultValueSql: "NEWID()"),
                     CreatedAt = table.Column<DateTime>(type: "datetime", nullable: false, defaultValueSql: "getdate()"),
-                    ModifiedAt = table.Column<DateTime>(nullable: true),
+                    ModifiedAt = table.Column<DateTime>(type: "datetime", nullable: true, defaultValueSql: "getdate()"),
                     RowVersion = table.Column<byte[]>(rowVersion: true, nullable: true),
                     UserProfileId = table.Column<long>(nullable: false),
                     ProjectId = table.Column<int>(nullable: true),
@@ -149,7 +150,7 @@ namespace AviTrackr.Domain.Data.Migrations
                         .Annotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn),
                     Identifier = table.Column<Guid>(nullable: false, defaultValueSql: "NEWID()"),
                     CreatedAt = table.Column<DateTime>(type: "datetime", nullable: false, defaultValueSql: "getdate()"),
-                    ModifiedAt = table.Column<DateTime>(nullable: true),
+                    ModifiedAt = table.Column<DateTime>(type: "datetime", nullable: true, defaultValueSql: "getdate()"),
                     RowVersion = table.Column<byte[]>(rowVersion: true, nullable: true),
                     Location = table.Column<string>(nullable: true),
                     ListingBoundsNorthEastLatitude = table.Column<double>(nullable: true),
@@ -177,10 +178,10 @@ namespace AviTrackr.Domain.Data.Migrations
                         .Annotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn),
                     Identifier = table.Column<Guid>(nullable: false, defaultValueSql: "NEWID()"),
                     CreatedAt = table.Column<DateTime>(type: "datetime", nullable: false, defaultValueSql: "getdate()"),
-                    ModifiedAt = table.Column<DateTime>(nullable: true),
+                    ModifiedAt = table.Column<DateTime>(type: "datetime", nullable: true, defaultValueSql: "getdate()"),
                     RowVersion = table.Column<byte[]>(rowVersion: true, nullable: true),
                     NotificationTypeId = table.Column<long>(nullable: false),
-                    NofificationTimingId = table.Column<long>(nullable: false),
+                    NotificationTimingId = table.Column<long>(nullable: false),
                     MyTaskId = table.Column<long>(nullable: true)
                 },
                 constraints: table =>
@@ -193,8 +194,8 @@ namespace AviTrackr.Domain.Data.Migrations
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
                     table.ForeignKey(
-                        name: "FK_Notifications_NotificationTimings_NofificationTimingId",
-                        column: x => x.NofificationTimingId,
+                        name: "FK_Notifications_NotificationTimings_NotificationTimingId",
+                        column: x => x.NotificationTimingId,
                         principalTable: "NotificationTimings",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
@@ -217,9 +218,9 @@ namespace AviTrackr.Domain.Data.Migrations
                 column: "MyTaskId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_Notifications_NofificationTimingId",
+                name: "IX_Notifications_NotificationTimingId",
                 table: "Notifications",
-                column: "NofificationTimingId");
+                column: "NotificationTimingId");
 
             migrationBuilder.CreateIndex(
                 name: "IX_Notifications_NotificationTypeId",

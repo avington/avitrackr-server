@@ -22,8 +22,8 @@ namespace AviTrackr.Domain.Data.Builders
             builder.Entity<NotificationTiming>(e =>
             {
                 e.HasMany(m => m.Notifications)
-                    .WithOne(o => o.NofificationTiming)
-                    .HasForeignKey(f => f.NofificationTimingId);
+                    .WithOne(o => o.NotificationTiming)
+                    .HasForeignKey(f => f.NotificationTimingId);
             });
 
             builder.Entity<NotificationType>(e =>

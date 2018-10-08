@@ -7,8 +7,8 @@ namespace AviTrackr.Domain.Features.MyTasks.Entities
     {
         public virtual NotificationType NotificationType { get; set; }
         public long NotificationTypeId { get; set; }
-        public virtual NotificationTiming NofificationTiming { get; set; }
-        public long NofificationTimingId { get; set; }
+        public virtual NotificationTiming NotificationTiming { get; set; }
+        public long NotificationTimingId { get; set; }
     
         public virtual MyTask MyTask { get; set; }
 

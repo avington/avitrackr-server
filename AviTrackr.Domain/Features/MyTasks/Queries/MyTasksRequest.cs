@@ -24,6 +24,7 @@ namespace AviTrackr.Domain.Features.MyTasks.Queries
             public bool IsVisible { get; set; }
             public string TaskDescription { get; set; }
             public DateTime? CreatedAt { get; set; }
+            public DateTime? StartsAt { get; set; }
             public DateTime? ExpiresAt { get; set; }
             public List<NotificationLocationModel> NotificationLocations { get; set; }
             public List<Notification> Notifications { get; set; }

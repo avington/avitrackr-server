@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Security.Claims;
 using System.Threading.Tasks;
 using AviTrackr.Domain.Base.Models;
+using AviTrackr.Domain.Features.MyTasks.Commands;
 using AviTrackr.Domain.Features.MyTasks.Queries;
 using MediatR;
 using Microsoft.AspNetCore.Authorization;
@@ -42,6 +43,25 @@ namespace AviTrackr.Api.Controllers
                 _logger.LogError("My Task List Exception", ex);
                 return StatusCode(500, ex);
             }
+        }
+
+        [HttpPost]
+        [Authorize]
+        public async Task<ActionResult<AddUpdateMyTask.Command>> Post(AddUpdateMyTask.Command command)
+        {
+            var userId = User.FindFirstValue("http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress");
+            command.UserName = userId;
+            try
+            {
+                var result = await _mediator.Send(command);
+                return result;
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError("My Task List Exception", ex);
+                return StatusCode(500, ex);
+            }
+            
         }
     }
 }
