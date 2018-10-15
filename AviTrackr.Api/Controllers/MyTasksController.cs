@@ -47,7 +47,7 @@ namespace AviTrackr.Api.Controllers
 
         [HttpPost]
         [Authorize]
-        public async Task<ActionResult<AddUpdateMyTask.Command>> Post(AddUpdateMyTask.Command command)
+        public async Task<ActionResult<AddMyTask.Command>> Post(AddMyTask.Command command)
         {
             var userId = User.FindFirstValue("http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress");
             command.UserName = userId;

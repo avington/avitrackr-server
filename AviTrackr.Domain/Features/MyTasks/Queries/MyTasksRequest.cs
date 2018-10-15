@@ -88,10 +88,10 @@ namespace AviTrackr.Domain.Features.MyTasks.Queries
 
                 if (request.OpenOnly.HasValue && request.OpenOnly.Value)
                 {
-                    query = query.Where(x => x.Status != null && x.Status.StatusName == "Not Started");
-                    query = query.Where(x => x.Status != null && x.Status.StatusName == "In Progress");
-                    query = query.Where(x => x.Status != null && x.Status.StatusName == "Pending");
+                    List<string> list = new List<string> { "Not Started", "Not Started", "Pending" };
+                    query = query.Where(x => list.Contains(x.Status.StatusName));
                 }
+                    
 
                 query = query.Paging(request);
 

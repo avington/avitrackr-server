@@ -11,7 +11,7 @@ using Microsoft.EntityFrameworkCore;
 
 namespace AviTrackr.Domain.Features.MyTasks.Commands
 {
-    public class AddUpdateMyTask
+    public class AddMyTask
     {
 
         public class Command: IRequest<Command>
@@ -73,17 +73,27 @@ namespace AviTrackr.Domain.Features.MyTasks.Commands
             public async Task<Command> Handle(Command request, CancellationToken cancellationToken)
             {
                 var user = await _context.UserProfiles.FirstOrDefaultAsync(x => x.Email == request.UserName, cancellationToken);
-                var myTask = _mapperWrapper.Map<Command, MyTask>(request);
+                var status = await _context.MyTaskStatuses.FirstOrDefaultAsync(s => s.Id == request.Status.Id, cancellationToken);
 
                 if (user == null)
                 {
                     return null;
                 }
 
+                var myTask = _mapperWrapper.Map<Command, MyTask>(request);
+
                 myTask.UserProfile = user;
                 myTask.UserProfileId = user.Id;
+                myTask.Status = status;
 
-                return null;
+                _context.Tasks.Add(myTask);
+
+                await _context.SaveChangesAsync(cancellationToken);
+
+                var result = _mapperWrapper.Map<MyTask, AddMyTask.Command>(myTask);
+                myTask.UserProfileId = 0;
+
+                return result;
 
             }
         }

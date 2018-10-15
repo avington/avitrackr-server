@@ -17,6 +17,8 @@ namespace AviTrackr.Domain.Data.Builders
                     .WithOne(o => o.MyTask)
                     .OnDelete(DeleteBehavior.Cascade);
 
+                
+
             });
 
             builder.Entity<NotificationTiming>(e =>

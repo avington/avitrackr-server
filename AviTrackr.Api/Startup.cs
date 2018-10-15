@@ -82,6 +82,7 @@ namespace AviTrackr.Api
 
             Mapper.Initialize(i => i.AddProfiles(typeof(BaseEntity).GetTypeInfo().Assembly));
 
+            UserProfileSeed.Seed(context).Wait();
             NotificationTypeSeed.Seed(context).Wait();
             MyTaskStatusesSeed.Seed(context).Wait();
 
